@@ -372,6 +372,11 @@ def validate_config(cfg):
     if cfg.rope_scaling:
         LOG.warning("`rope_scaling` should now be be a key under `model_config`")
 
+    if cfg.test_datasets and cfg.val_set_size:
+        raise ValueError(
+            "non-zero val_set_size should not be used with test_datasets configuration"
+        )
+
     # TODO
     # MPT 7b
     # https://github.com/facebookresearch/bitsandbytes/issues/25
