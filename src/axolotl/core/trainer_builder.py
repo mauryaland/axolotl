@@ -670,6 +670,10 @@ class HFCausalTrainerBuilder(TrainerBuilderBase):
         training_arguments_kwargs = self.hook_pre_create_training_args(
             training_arguments_kwargs
         )
+        if self.cfg.is_llama_derived_model and self.cfg.noisy_embedding_alpha:
+            training_arguments_kwargs[
+                "noisy_embedding_alpha"
+                ] = self.cfg.noisy_embedding_alpha
         training_args = (
             AxolotlTrainingArguments(  # pylint: disable=unexpected-keyword-arg
                 **training_arguments_kwargs,

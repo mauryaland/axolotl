@@ -181,7 +181,6 @@ def pretrain_hooks(cfg, trainer):
     :param trainer:
     :return:
     """
-    neft_embeddings.pretrain_hook(cfg, trainer)
 
 
 def post_train_hooks(cfg, trainer):
@@ -191,4 +190,3 @@ def post_train_hooks(cfg, trainer):
     :param trainer:
     :return:
     """
-    neft_embeddings.post_train_hook(cfg, trainer)
